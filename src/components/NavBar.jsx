@@ -2,7 +2,7 @@ import { LogoIcon } from "../icons/icons";
 
 const NavBar = () => {
   return (
-    <div className="bg-gray-800 text-white h-14 flex items-center">
+    <div className="bg-gray-800 text-white h-14 flex items-center space-y-0">
       <div className="wrapper-container w-full">
         <div className="flex items-center gap-1 cursor pointer">
           <LogoIcon />
