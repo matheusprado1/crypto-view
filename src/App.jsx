@@ -14,7 +14,7 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<CryptoHome />} />
-        <Route path="coin/:id" element={<CryptoDetail />} />
+        <Route path="/coin/:id" element={<CryptoDetail />} />
       </Routes>
     </BrowserRouter>
   )
