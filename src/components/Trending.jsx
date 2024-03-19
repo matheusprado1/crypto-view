@@ -1,5 +1,5 @@
 import useAxios from "../hooks/useAxios"
-import CoinTrendind from "./CoinTrendind";
+import CoinTrendind from "./CoinTrending";
 
 const Trending = () => {
   const { response } = useAxios("/search/trending");
