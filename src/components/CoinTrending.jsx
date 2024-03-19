@@ -1,4 +1,4 @@
-const CoinTrendind = ({ coin }) => {
+const CoinTrending = ({ coin }) => {
   console.log(coin)
   return (
     <div>
@@ -16,4 +16,4 @@ const CoinTrendind = ({ coin }) => {
   )
 }
 
-export default CoinTrendind
+export default CoinTrending

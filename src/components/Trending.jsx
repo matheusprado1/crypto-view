@@ -1,5 +1,5 @@
 import useAxios from "../hooks/useAxios"
-import CoinTrendind from "./CoinTrending";
+import CoinTrending from "./CoinTrending";
 
 const Trending = () => {
   const { response } = useAxios("/search/trending");
@@ -10,7 +10,7 @@ const Trending = () => {
   return (
     <div className="mt-8">
       <h1 className="text-2xl mb-2">Trending</h1>
-      {limitedCoins && limitedCoins.map(coin => <CoinTrendind key={coin.item.id} coin={coin.item} />)}
+      {limitedCoins && limitedCoins.map(coin => <CoinTrending key={coin.item.id} coin={coin.item} />)}
     </div>
   )
 }
