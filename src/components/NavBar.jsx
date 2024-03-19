@@ -1,4 +1,4 @@
-import { LogoIcon } from "./icons/icons"
+import { LogoIcon } from "../icons/icons";
 
 const NavBar = () => {
   return (
