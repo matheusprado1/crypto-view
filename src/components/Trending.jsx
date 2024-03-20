@@ -3,14 +3,14 @@ import CoinTrending from "./CoinTrending";
 
 const Trending = () => {
   const { response } = useAxios("/search/trending");
-  // console.log(response)
+  console.log(response)
 
-  const limitedCoins = response && response.coins.slice(0, 10);
+  // const limitedCoins = response && response.coins.slice(0, 10);
 
   return (
     <div className="mt-8">
       <h1 className="text-2xl mb-2">Em alta</h1>
-      {limitedCoins && limitedCoins.map(coin => <CoinTrending key={coin.item.id} coin={coin.item} />)}
+      {response && response.coins.map(coin => <CoinTrending key={coin.item.id} coin={coin.item} />)}
     </div>
   )
 }
