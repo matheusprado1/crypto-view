@@ -10,8 +10,8 @@ import {
   Tooltip,
   Filler,
   Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 import moment from "moment";
 
 
@@ -32,7 +32,7 @@ const HistoryChart = () => {
   // console.log(response);
 
   if (!response) {
-    return <div>Carregando...</div>
+    return <div>Carregando Gráfico...</div>
   }
 
   const coinCharData = response.prices.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
@@ -49,8 +49,8 @@ const HistoryChart = () => {
         fill: true,
         label: id,
         data: coinCharData.map(val => val.y),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
       }
     ]
   }
