@@ -1,16 +1,34 @@
-import { LogoIcon } from "../icons/icons";
+import { LogoIcon, Wallet } from "../icons/icons";
+import { useNavigate } from "react-router-dom";
+import useMetamask from '../hooks/useMetamask';
 
 const NavBar = () => {
+  const { balance, isConnected, connectMetamask, isConnecting } = useMetamask(); // Desestrutura o novo estado
+  const navigate = useNavigate();
+
   return (
-    <div className="bg-gray-800 text-white h-14 flex items-center space-y-0">
-      <div className="wrapper-container w-full">
-        <div className="flex items-center gap-1 cursor pointer">
+    <div className="bg-gray-800 text-white h-20 flex items-center justify-between">
+      <div className="wrapper-container w-full flex justify-between">
+        <div className="flex items-center gap-1 cursor-pointer" onClick={() => navigate("/")}>
           <LogoIcon />
-          <p className="font-semibold"><span className="text-yellow-500">C</span>rypto<span className="text-yellow-500">V</span>iew</p>
+          <p className="font-semibold text-xl cursor-pointer"><span className="text-yellow-500">C</span>rypto<span className="text-yellow-500">V</span>iew</p>
+        </div>
+        <div className="flex items-center gap-4">
+          {!isConnected && (
+            <button onClick={connectMetamask} className={`bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded ${isConnecting ? 'opacity-50 cursor-not-allowed' : ''}`} disabled={isConnecting}>
+              <Wallet />
+            </button>
+          )}
+          {isConnected && (
+            <div>
+              <p><span className="font-semibold">Status: </span><span className="text-green-500">Conectado</span></p>
+              <p><span className="font-semibold">Saldo:</span> {balance} ETH</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
   )
 }
 
-export default NavBar
+export default NavBar;
