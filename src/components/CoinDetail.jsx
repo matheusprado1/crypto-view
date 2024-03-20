@@ -8,7 +8,7 @@ const CoinDetail = () => {
   const { id } = useParams();
 
   const { response } = useAxios(`/coins/${id}?localization=false&tickers=false&market_data=true&community_data=false&sparkline=false`);
-  // console.log(response)
+  console.log(response)
 
   if (!response) {
     return <div>Carregando...</div>
@@ -40,8 +40,7 @@ const CoinDetail = () => {
           <span>{formatBRLCurrency(response.market_data.total_volume.brl)}</span>
         </div>
       </div>
-
-    </div >
+    </div>
   )
 }
 
