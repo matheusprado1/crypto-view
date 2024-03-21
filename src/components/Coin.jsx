@@ -6,7 +6,7 @@ const Coin = ({ coin }) => {
   // console.log(coin)
   return (
     <Link to={`/coin/${coin.id}`}>
-      <div className="grid grid-cols-2 sm:grid-cols-4 font-light p-2 rounded border-gray-200 border-b hover:bg-gray-200">
+      <div className="grid grid-cols-2 sm:grid-cols-4 font-light p-2 rounded border-gray-200 border-b hover:bg-gray-800">
         <div className="flex item-center gap-2 w-full">
           <span className="font-semibold">{coin.market_cap_rank}.</span>
           <img className="w-8 h-8" src={coin.image} alt={coin.name} />

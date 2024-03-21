@@ -1,13 +1,13 @@
 import { LogoIcon, Wallet } from "../icons/icons";
 import { useNavigate } from "react-router-dom";
-import useMetamask from '../hooks/useMetamask';
+import useMetamask from "../hooks/useMetamask";
 
 const NavBar = () => {
-  const { balance, isConnected, connectMetamask, isConnecting } = useMetamask(); // Desestrutura o novo estado
+  const { balance, isConnected, connectMetamask, isConnecting } = useMetamask();
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gray-800 text-white h-20 flex items-center justify-between">
+    <div className="bg-gray-800 h-20 flex items-center justify-between">
       <div className="wrapper-container w-full flex justify-between">
         <div className="flex items-center gap-1 cursor-pointer" onClick={() => navigate("/")}>
           <LogoIcon />
@@ -15,7 +15,7 @@ const NavBar = () => {
         </div>
         <div className="flex items-center gap-4">
           {!isConnected && (
-            <button onClick={connectMetamask} className={`bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded ${isConnecting ? 'opacity-50 cursor-not-allowed' : ''}`} disabled={isConnecting}>
+            <button onClick={connectMetamask} className={`bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded ${isConnecting ? "opacity-50 cursor-not-allowed" : ""}`} disabled={isConnecting}>
               <Wallet />
             </button>
           )}

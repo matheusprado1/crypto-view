@@ -1,16 +1,37 @@
-import useAxios from "../hooks/useAxios"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMarketCoins } from "../redux/coinsSlice";
 import Coin from "./Coin";
 
 const Markets = () => {
-  const { response } = useAxios("/coins/markets?vs_currency=brl&order=market_cap_desc&per_page=10&page=1&sparkline=false");
-  // console.log(response)
+  const dispatch = useDispatch();
+  const marketCoins = useSelector(state => state.coins.marketCoins);
+  const status = useSelector(state => state.coins.status);
+  // const error = useSelector(state => state.coins.error);
+
+  useEffect(() => {
+
+    if (marketCoins.length === 0 && status !== "loading") {
+
+      dispatch(fetchMarketCoins());
+    }
+
+  }, [dispatch, marketCoins, status]);
+
+  if (status === "loading") {
+    return <div>Carregando...</div>;
+  }
+
+  // if (error) {
+  //   return <div>Erro: {error}</div>;
+  // }
 
   return (
     <section className="mt-8">
       <h1 className="text-2xl pb-8">Top 10 criptomoedas por capitalização de mercado</h1>
-      {response && response.map(coin => <Coin key={coin.id} coin={coin} />)}
+      {marketCoins.map(coin => <Coin key={coin.id} coin={coin} />)}
     </section>
-  )
-}
+  );
+};
 
-export default Markets
+export default Markets;

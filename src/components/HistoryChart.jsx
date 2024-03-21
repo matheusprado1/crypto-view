@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import useAxios from "../hooks/useAxios";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,6 +12,9 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchCoinChart } from "../redux/coinDetailSlice";
 
 
 ChartJS.register(
@@ -27,15 +29,20 @@ ChartJS.register(
 );
 
 const HistoryChart = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
-  const { response } = useAxios(`coins/${id}/market_chart?vs_currency=brl&days=7`);
-  // console.log(response);
+  const chart = useSelector(state => state.coinDetail.chart);
+  console.log(chart);
 
-  if (!response) {
+  useEffect(() => {
+    dispatch(fetchCoinChart(id));
+  }, [dispatch, id])
+
+  if (!chart) {
     return <div>Carregando Gráfico...</div>
   }
 
-  const coinCharData = response.prices.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
+  const coinCharData = chart.prices.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
   // console.log(coinCharData)
 
   const options = {
@@ -57,9 +64,11 @@ const HistoryChart = () => {
 
   return (
     <div>
+      <h2>Gráfico de preço dos últimos 7 Dias</h2>
       <Line options={options} data={data} />
     </div>
   )
+
 }
 
 export default HistoryChart
