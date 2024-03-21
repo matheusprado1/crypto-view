@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useMetamask from "../hooks/useMetamask";
 
 const NavBar = () => {
-  const { balance, isConnected, connectMetamask, isConnecting } = useMetamask();
+  const { balance, isConnected, account, connectMetamask, isConnecting } = useMetamask();
   const navigate = useNavigate();
 
   return (
@@ -20,9 +20,9 @@ const NavBar = () => {
             </button>
           )}
           {isConnected && (
-            <div>
-              <p><span className="font-semibold">Status: </span><span className="text-green-500">Conectado</span></p>
-              <p><span className="font-semibold">Saldo:</span> {balance} ETH</p>
+            <div className="flex-col">
+              <p><span className="text-green-500 text-xs">{account}</span></p>
+              <p className="text-xs"><span className="font-semibold">Saldo:</span> {balance} ETH</p>
             </div>
           )}
         </div>

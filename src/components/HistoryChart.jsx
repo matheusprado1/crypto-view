@@ -65,7 +65,7 @@ const HistoryChart = () => {
   }
 
   return (
-    <div>
+    <div className="sm:w-2/3 mt-8">
       <h2 className="text-center text-sm font-semibold">Gráfico de preço dos últimos 7 dias</h2>
       <Line options={options} data={data} />
     </div>
