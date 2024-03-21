@@ -6,4 +6,7 @@
   .wrapper-container {
     @apply max-w-7xl mx-auto px-2
   }
+  .dark-theme {
+    @apply bg-gray-900 text-gray-100;
+   }
 }
