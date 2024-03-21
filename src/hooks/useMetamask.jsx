@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Web3 from "web3";
+import { useDispatch, useSelector } from "react-redux";
+import { setAccount, setBalance, setIsConnected } from "../redux/metamaskSlice";
 
 const useMetamask = () => {
-  const [account, setAccount] = useState(null);
-  const [balance, setBalance] = useState(null);
-  const [isConnected, setIsConnected] = useState(false);
+  const dispatch = useDispatch();
+  const { account, balance, isConnected } = useSelector((state) => state.metamask);
 
   useEffect(() => {
     const checkMetamask = async () => {
@@ -12,11 +13,11 @@ const useMetamask = () => {
         try {
           const accounts = await window.ethereum.request({ method: "eth_accounts" });
           if (accounts.length > 0) {
-            setAccount(accounts[0]);
-            setIsConnected(true);
+            dispatch(setAccount(accounts[0]));
+            dispatch(setIsConnected(true));
             const web3 = new Web3(window.ethereum);
             const balance = await web3.eth.getBalance(accounts[0]);
-            setBalance(web3.utils.fromWei(balance, "ether"));
+            dispatch(setBalance(web3.utils.fromWei(balance, "ether")));
           }
         } catch (error) {
           console.error("Falha ao conectar com a Metamask", error);
@@ -25,18 +26,18 @@ const useMetamask = () => {
     };
 
     checkMetamask();
-  }, []);
+  }, [dispatch]);
 
   const connectMetamask = async () => {
     if (window.ethereum) {
       try {
         const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
         if (accounts.length > 0) {
-          setAccount(accounts[0]);
-          setIsConnected(true);
+          dispatch(setAccount(accounts[0]));
+          dispatch(setIsConnected(true));
           const web3 = new Web3(window.ethereum);
           const balance = await web3.eth.getBalance(accounts[0]);
-          setBalance(web3.utils.fromWei(balance, "ether"));
+          dispatch(setBalance(web3.utils.fromWei(balance, "ether")));
         }
       } catch (error) {
         console.error("Falha ao conectar com a Metamask", error);
