@@ -1,10 +1,10 @@
-import { LogoIcon, Wallet } from "../icons/icons";
 import { useNavigate } from "react-router-dom";
 import useMetamask from "../hooks/useMetamask";
+import { LogoIcon, Wallet } from "../icons/icons";
 
 const NavBar = () => {
-  const { balance, isConnected, account, connectMetamask, isConnecting } = useMetamask();
-  const navigate = useNavigate();
+  const { balance, isConnected, account, connectMetamask, isConnecting } = useMetamask()
+  const navigate = useNavigate()
 
   return (
     <div className="bg-gray-800 h-20 flex items-center justify-between">
@@ -31,4 +31,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar;
+export default NavBar

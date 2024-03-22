@@ -29,10 +29,9 @@ ChartJS.register(
 );
 
 const HistoryChart = () => {
-  const dispatch = useDispatch();
-  const { id } = useParams();
-  const chart = useSelector(state => state.coinDetail.chart);
-  console.log(chart);
+  const dispatch = useDispatch()
+  const { id } = useParams()
+  const chart = useSelector(state => state.coinDetail.chart)
 
   useEffect(() => {
     dispatch(fetchCoinChart(id));
@@ -41,11 +40,10 @@ const HistoryChart = () => {
   if (!chart) {
     return <div className="wrapper-container mt-8">
       <Skeleton className="h-72 w-full mb-10" />
-    </div>;
+    </div>
   }
 
-  const coinCharData = chart.prices.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
-  // console.log(coinCharData)
+  const coinCharData = chart.prices.map(value => ({ x: value[0], y: value[1].toFixed(2) }))
 
   const options = {
     responsive: true,
@@ -65,7 +63,7 @@ const HistoryChart = () => {
   }
 
   return (
-    <div className="sm:w-2/3 mt-8">
+    <div className="lg:w-2/3 mt-8">
       <h2 className="text-center text-sm font-semibold">Gráfico de preço dos últimos 7 dias</h2>
       <Line options={options} data={data} />
     </div>

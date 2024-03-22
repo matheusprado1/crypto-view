@@ -4,7 +4,7 @@ const initialState = {
   account: null,
   balance: null,
   isConnected: false,
-};
+}
 
 const metamaskSlice = createSlice({
   name: "metamask",
@@ -20,8 +20,8 @@ const metamaskSlice = createSlice({
       state.isConnected = action.payload;
     },
   },
-});
+})
 
-export const { setAccount, setBalance, setIsConnected } = metamaskSlice.actions;
+export const { setAccount, setBalance, setIsConnected } = metamaskSlice.actions
 
-export default metamaskSlice.reducer;
+export default metamaskSlice.reducer

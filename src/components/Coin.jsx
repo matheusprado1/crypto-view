@@ -9,12 +9,12 @@ const Coin = ({ coin }) => {
         <div className="flex item-center gap-2 w-full">
           <span className="font-semibold">{coin.market_cap_rank}.</span>
           <img className="w-8 h-8" src={coin.image} alt={coin.name} />
-          <p>{coin.name}</p>
-          <span className="text-xs">({coin.symbol})</span>
+          <p className="font-semibold">{coin.name}</p>
+          <span className="text-xs uppercase">({coin.symbol})</span>
         </div>
         <div className="hidden sm:block">
-          <span className="text-sm">Alta/Baixa 24h</span>
-          <span className={`flex gap-2 ${coin.price_change_percentage_24h < 0 ? "text-red-400" : "text-green-400"}`}>
+          <span className="text-sm font-semibold">Alta/Baixa 24h</span>
+          <span className={`flex gap-2 font-semibold ${coin.price_change_percentage_24h < 0 ? "text-red-400" : "text-green-400"}`}>
             {coin.price_change_percentage_24h < 0 ? <TrendingDown /> : <TrendingUp />}
             {coin.price_change_percentage_24h}
             %</span>

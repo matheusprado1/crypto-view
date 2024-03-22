@@ -7,6 +7,6 @@ const rootReducer = combineReducers({
   metamask: metamaskReducer,
   coins: coinsReducer,
   coinDetail: coinDetailReducer
-});
+})
 
-export default rootReducer;
+export default rootReducer

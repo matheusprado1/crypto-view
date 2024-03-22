@@ -12,7 +12,7 @@ const App = () => {
         <Route path="/coin/:id" element={<CryptoDetail />} />
       </Routes>
     </div>
-  );
-};
+  )
+}
 
 export default App
