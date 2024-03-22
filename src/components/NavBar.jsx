@@ -13,7 +13,7 @@ const NavBar = () => {
           <LogoIcon />
           <p className="font-semibold text-xl cursor-pointer"><span className="text-yellow-500">C</span>rypto<span className="text-yellow-500">V</span>iew</p>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="sm:flex items-center gap-4 hidden">
           {!isConnected && (
             <button onClick={connectMetamask} className={`bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded ${isConnecting ? "opacity-50 cursor-not-allowed" : ""}`} disabled={isConnecting}>
               <Wallet />
