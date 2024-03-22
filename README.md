@@ -27,7 +27,7 @@ O projeto Crypto View é uma aplicação web responsiva que permite aos usuário
 
 ## Aplicação ao Vivo
 
-A aplicação está hospedada em [https://crypto-view-4qy7.onrender.com/](https://crypto-view-4qy7.onrender.com/).
+A aplicação está hospedada em [https://crypto-view-cyan.vercel.app/](https://crypto-view-cyan.vercel.app/).
 
 ## Repositório do Servidor de Proxy
 
