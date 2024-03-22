@@ -25,6 +25,7 @@ const Markets = () => {
       <Skeleton className="h-8 w-full mt-2" />
       <Skeleton className="h-8 w-full mt-2" />
       <Skeleton className="h-8 w-full mt-2" />
+      <Skeleton className="h-8 w-full mt-2" />
     </div>
   }
 
