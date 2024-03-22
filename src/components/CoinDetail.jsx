@@ -10,7 +10,6 @@ const CoinDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const coin = useSelector(state => state.coinDetail.coin);
-  console.log(coin)
 
   useEffect(() => {
     dispatch(fetchCoinDetail(id))
