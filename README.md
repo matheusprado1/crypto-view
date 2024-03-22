@@ -25,6 +25,10 @@ O projeto Crypto View é uma aplicação web responsiva que permite aos usuário
 3. Inicie o servidor de desenvolvimento: `npm run dev`
 4. Acesse `http://localhost:5173` no navegador.
 
+## Testes
+
+A aplicação tem testes automatizados para rodar o teste digite no terminal `npm test`
+
 ## Aplicação ao Vivo
 
 A aplicação está hospedada em [https://crypto-view-cyan.vercel.app/](https://crypto-view-cyan.vercel.app/).
